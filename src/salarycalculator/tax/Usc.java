@@ -20,12 +20,10 @@ public class Usc {
 		} else {
 		
 		for (int i = this.UscIncomeThresholds.length-1; i >= 0; i--) {
-			System.out.println("Income: " + income);
 			if(income > this.UscIncomeThresholds[i]) {
 				float taxableDifference = income - this.UscIncomeThresholds[i];
 				USC += taxableDifference * this.UscPercentage[i];
 				income = income - taxableDifference;
-				System.out.println("USC: " + USC + " income: " + income + " taxableDifference: " + taxableDifference);
 			}
 		}
 		
