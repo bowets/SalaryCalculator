@@ -7,17 +7,18 @@ public class Usc {
 	private float UscMinimumThreshold = 13000;
 	
 	private boolean qualifiesForUsc(float income) {
-		if (income > this.UscMinimumThreshold) {
-			return true;
+		if (income < this.UscMinimumThreshold) {
+			return false;
 		}
 		return true;
 	}
 	
 	public float uscDue(float income) {
-		if(!this.qualifiesForUsc(income)) {
-			return 0;
-		}
 		float USC = 0;
+		if(!this.qualifiesForUsc(income)) {
+			return USC;
+		} else {
+		
 		for (int i = this.UscIncomeThresholds.length-1; i >= 0; i--) {
 			System.out.println("Income: " + income);
 			if(income > this.UscIncomeThresholds[i]) {
@@ -30,5 +31,6 @@ public class Usc {
 		
 		
 		return USC;
+		}
 	}
 }
